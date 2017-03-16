@@ -109,4 +109,25 @@ module Enumerable
 		end
 		passed
 	end	
+
+	def my_count(element=nil)
+		passed = 0 
+		if element != nil
+			self.my_each do |item|
+				if item == element
+					passed += 1
+				end
+			end
+			return passed
+		elsif block_given?
+			self.my_each do |item|
+				if yield(item)
+					passed += 1
+				end
+			end
+			return passed
+		else
+			return self.length
+		end
+	end
 end
