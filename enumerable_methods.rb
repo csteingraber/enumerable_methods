@@ -130,4 +130,12 @@ module Enumerable
 			return self.length
 		end
 	end
+
+	def my_map
+		result = []
+		self.my_each do |element|
+			result << yield(element)
+		end
+		result
+	end
 end
