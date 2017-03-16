@@ -40,4 +40,27 @@ module Enumerable
 		end
 		result
 	end
+
+	def my_all?
+		passed = 0
+		if self.instance_of? Array
+			self.my_each do |element|
+				if yield(element)
+					passed += 1
+				end
+			end
+		else
+			self.my_each do |key, value|
+				if yield(key, value)
+					passed += 1 
+				end
+			end
+		end
+		if passed == self.length
+			passed = true
+		else
+			passed = false
+		end
+		passed
+	end
 end
