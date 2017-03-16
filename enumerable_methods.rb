@@ -138,4 +138,16 @@ module Enumerable
 		end
 		result
 	end
+
+	def my_inject(initial=nil)
+		if initial == nil
+			total = self[0]
+		else
+			total = initial
+		end
+		self.my_each do |element|
+			total = yield(total, element)
+		end
+		total
+	end
 end
