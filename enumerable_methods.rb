@@ -87,5 +87,26 @@ module Enumerable
 		passed
 	end
 
-	
+	def my_none?
+		passed = 0
+		if self.instance_of? Array
+			self.my_each do |element|
+				if yield(element)
+					passed += 1
+				end
+			end
+		else
+			self.my_each do |key, value|
+				if yield(key, value)
+					passed += 1 
+				end
+			end
+		end
+		if passed == 0
+			passed = true
+		else
+			passed = false
+		end
+		passed
+	end	
 end
