@@ -1,4 +1,13 @@
+#= Module Modifications
+#These modifications are from part of
+#*The Odin Project's Project Cirriculum*
+#and are a testament to my understanding
+#of iterators.
+#--
+# This is just me testing stuff out with RDoc
+#++
 module Enumerable
+	# Mimics the +.each+ method.
 	def my_each
 		if self.instance_of? Array
 			self.length.times do |index|
@@ -13,6 +22,7 @@ module Enumerable
 		self
 	end
 
+	# Mimics the +.each+ method and add the index with it.
 	def each_with_index
 		if self.instance_of? Array
 			self.length.times do |index|
